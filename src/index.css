@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 20% 6%;
+    --foreground: 40 10% 92%;
+
+    --card: 220 18% 10%;
+    --card-foreground: 40 10% 92%;
+
+    --popover: 220 18% 10%;
+    --popover-foreground: 40 10% 92%;
+
+    --primary: 43 96% 56%;
+    --primary-foreground: 220 20% 6%;
+
+    --secondary: 220 15% 16%;
+    --secondary-foreground: 40 10% 92%;
+
+    --muted: 220 15% 14%;
+    --muted-foreground: 220 10% 55%;
+
+    --accent: 43 96% 56%;
+    --accent-foreground: 220 20% 6%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 15% 18%;
+    --input: 220 15% 18%;
+    --ring: 43 96% 56%;
+
+    --radius: 0.5rem;
+
+    --gold: 43 96% 56%;
+    --gold-dark: 43 80% 40%;
+    --gold-glow: 43 100% 65%;
+    --dark-surface: 220 18% 10%;
+    --dark-elevated: 220 15% 14%;
+
+    --font-display: 'Oswald', sans-serif;
+    --font-body: 'Inter', sans-serif;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-card/60 backdrop-blur-xl border border-border/50;
+  }
+
+  .gold-gradient {
+    background: linear-gradient(135deg, hsl(var(--gold)) 0%, hsl(var(--gold-glow)) 50%, hsl(var(--gold)) 100%);
+  }
+
+  .gold-text {
+    background: linear-gradient(135deg, hsl(var(--gold)) 0%, hsl(var(--gold-glow)) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .section-padding {
+    @apply py-20 md:py-28 px-4;
+  }
+
+  .gold-border-glow {
+    box-shadow: 0 0 20px hsl(var(--gold) / 0.15), inset 0 1px 0 hsl(var(--gold) / 0.1);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--gold) / 0.3);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--gold) / 0.5);
+}
